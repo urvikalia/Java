@@ -17,9 +17,7 @@ public class SelectionSort {
 			swap(unsorted, currentIndex, smallestIndex);
 			currentIndex++;
 		}
-	
 		print(unsorted);
-
 	}
 
 	private static void print(int[] unsorted) {
@@ -34,7 +32,6 @@ public class SelectionSort {
 		unsorted[unsortedIndex] = unsorted[selected];
 		unsorted[selected] = temp;
 	}
-	
 
 	public static void main(String[] args) {
 		sort(new int[] { 3, 4, 2, 1 ,7,8});
