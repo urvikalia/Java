@@ -11,13 +11,15 @@ import java.util.Stack;
  *  - if you have traversed the the input and still the stack is not empty
  *  - if the pattern of opening and closing doesn't match
  *
+ *
+ *  After inplementing it I realized Doing it the TDD way it would have been more fun
+ *
+ *
  */
 
 public class BalancedBrackets {
 
-
     private static Stack<Character> characterStack=new Stack<>();
-
 
     private static boolean checkBalance(String input)
     {
@@ -25,29 +27,20 @@ public class BalancedBrackets {
         {
             Character ch=input.charAt(index);
             if(ch.equals('(')|| ch.equals('{') || ch.equals('['))
-            {
                 characterStack.push(ch);
 
-            }
             else if(ch.equals(')')|| ch.equals('}') || ch.equals(']'))
             {
                 if(characterStack.empty())
                     return false;
 
-                Character popedChar= characterStack.pop();
-                String combinator = ""+popedChar+ch;
-                if(combinator.equals("()") || combinator.equals("{}") || combinator.equals("[]"))
-                {
+                String combinator = ""+characterStack.pop()+ch;
 
-                }
-                else
-                    return false;
+                if(combinator.equals("()") || combinator.equals("{}") || combinator.equals("[]")){}
+                else return false;
             }
         }
-        if(characterStack.empty())
-        return true;
-        else
-            return false;
+        return characterStack.empty();
     }
 
     public static void main(String[] args) {
